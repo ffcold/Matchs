@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATCH PLAYS - NORMAN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7fafc;
+            color: #2d3748;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            overflow-x: auto;
+        }
+
+        .tournament-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .round {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            flex-grow: 1;
+            min-width: 180px;
+        }
+
+        .round-final {
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .round-title {
+            font-size: 1rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .matchup {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .round-1 .matchup { margin: 12px 0; }
+        .round-2 .matchup { margin: 42px 0; }
+        .round-3 .matchup { margin: 122px 0; }
+        .final-match .matchup { margin: 0; }
+
+        .player {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            background-color: #ffffff;
+            border-radius: 0.375rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            margin: 0.2rem 0;
+            width: 100%;
+        }
+        
+        .player-name {
+            flex-grow: 1;
+            min-width: 40px;
+            font-size: 0.875rem;
+        }
+
+        .player-name:focus {
+            outline: none;
+            color: #4299e1;
+        }
+        
+        /* --- Conectores (Solo para vista de escritorio) --- */
+        @media (min-width: 1281px) {
+            .matchup::after {
+                content: '';
+                position: absolute;
+                width: 15px;
+                height: 2px;
+                background-color: #cbd5e0;
+            }
+            .round-left .matchup::after { right: -15px; top: 50%; }
+            .round-right .matchup::after { left: -15px; top: 50%; }
+
+            .connector {
+                width: 15px;
+                display: flex;
+                position: relative;
+            }
+            .connector::before {
+                content: '';
+                position: absolute;
+                background-color: #cbd5e0;
+            }
+            .connector.conn-left::before { width: 2px; left: 0; }
+            .connector.conn-right::before { width: 2px; right: 0; }
+
+            .qtr-connector .connector::before { height: 58px; top: -29px; }
+            .semi-connector .connector::before { height: 154px; top: -77px; }
+            .final-connector-line .connector::before { height: 346px; top: -173px; }
+        }
+
+        .champion { text-align: center; }
+        .champion-title { font-size: 1.25rem; font-weight: 900; color: #dd6b20; text-transform: uppercase; }
+        .champion-name { margin-top: 0.75rem; padding: 0.75rem; background-color: #ffffff; border: 2px solid #dd6b20; border-radius: 0.5rem; font-size: 1rem; font-weight: 700; min-width: 180px; min-height: 40px;}
+        .trophy { font-size: 3rem; color: #dd6b20; margin-bottom: 0.5rem; }
+
+        @media (max-width: 1280px) {
+            body { padding: 1rem; }
+            .tournament-container { flex-direction: column; align-items: center; width: 100%; max-width: 400px; margin: 0 auto; gap: 1rem; }
+            .round { width: 100%; }
+            .round-left.round-1 { order: 1; }
+            .round-left.round-2 { order: 2; }
+            .round-left.round-3 { order: 3; }
+            .round-right.round-1 { order: 4; }
+            .round-right.round-2 { order: 5; }
+            .round-right.round-3 { order: 6; }
+            .round-final { order: 7; }
+        }
+    </style>
+</head>
+<body>
+    <div class="tournament-container">
+        <!-- LADO IZQUIERDO -->
+        <div class="round round-left round-1">
+            <div class="round-title">Octavos</div>
+            <div class="matchup">
+                <div class="player"><div class="player-name" contenteditable="true">YOVANNY MARTE-1</div></div>
+                <div class="player"><div class="player-name" contenteditable="true">CARLOS ROMERO-16</div></div>
+            </div>
+            <div class="matchup">
+                <div class="player"><div class="player-name" contenteditable="true">RAFAEL PEREZ-3</div></div>
+                <div class="player"><div class="player-name" contenteditable="true">HARVEY GOMEZ-14</div></div>
+            </div>
+            <div class="matchup">
+                <div class="player"><div class="player-name" contenteditable="true">J. ALMANZAR-5</div></div>
+                <div class="player"><div class="player-name" contenteditable="true">MAGIN FERREIRO-12</div></div>
+            </div>
+            <div class="matchup">
+                <div class="player"><div class="player-name" contenteditable="true">WENCHY PERALTA-7</div></div>
+                <div class="player"><div class="player-name" contenteditable="true">JAY GONZALEZ-10</div></div>
+            </div>
+        </div>
+        <div class="connector conn-left qtr-connector"></div>
+        <div class="round round-left round-2">
+            <div class="round-title">Cuartos</div>
+            <div class="matchup">
+                <div class="player"><div class="player-name" contenteditable="true">CARLOS ROMERO</div></div>
+                <div class="player"><div class="player-name" contenteditable="true">RAFAEL PEREZ</div></div>
+            </div>
+            <div class="matchup">
+                <div class="player"><div class="player-name" contenteditable="true">J. ALMANZAR</div></div>
+                <div class="player"><div class="player-name" contenteditable="true">JAY GONZALEZ</div></div>
+            </div>
+        </div>
+        <div clas
